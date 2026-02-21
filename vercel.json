@@ -16,8 +16,12 @@
       "dest": "/src/main.ts"
     },
     {
+      "src": "/assets/(.*)",
+      "dest": "/telemetry-frontend/dist/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/telemetry-frontend/dist/$1"
+      "dest": "/telemetry-frontend/dist/index.html"
     }
   ]
 }
