@@ -9,7 +9,7 @@ function App() {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall');
+      const response = await axios.get('https://your-new-render-link.onrender.com/api/pitwall');
       setMessages(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -26,7 +26,7 @@ function App() {
 
     try {
       // CRITICAL FIX: This must be a POST request, and it must include the data payload!
-      await axios.post('https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall', { driverName, message });
+      await axios.post('https://your-new-render-link.onrender.com/api/pitwall', { driverName, message });
       setDriverName('');
       setMessage('');
       fetchMessages(); // Refresh the board
