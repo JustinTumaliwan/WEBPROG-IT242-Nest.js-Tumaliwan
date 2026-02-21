@@ -9,7 +9,7 @@ function App() {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/pitwall');
+      const response = await axios.get('/api/pitwall');
       setMessages(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ function App() {
     if (!driverName || !message) return;
 
     try {
-      await axios.post('http://localhost:3000/api/pitwall', {
+      await axios.post('/api/pitwall', {
         driverName,
         message,
       });
