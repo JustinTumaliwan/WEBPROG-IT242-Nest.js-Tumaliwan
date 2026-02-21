@@ -4,26 +4,12 @@
     {
       "src": "src/main.ts",
       "use": "@vercel/node"
-    },
-    {
-      "src": "telemetry-frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/src/main.ts"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "src/main.ts"
     }
   ]
 }

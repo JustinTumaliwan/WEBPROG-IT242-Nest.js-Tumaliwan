@@ -9,7 +9,7 @@ function App() {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('/api/pitwall');
+      const response = await axios.get('https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall');
       setMessages(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -25,7 +25,7 @@ function App() {
     if (!driverName || !message) return;
 
     try {
-      await axios.post('/api/pitwall', {
+      await axios.post('https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall', {
         driverName,
         message,
       });
