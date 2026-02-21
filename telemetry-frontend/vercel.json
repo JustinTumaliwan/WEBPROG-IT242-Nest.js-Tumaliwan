@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/:match*",
-      "destination": "https://webprog-it242-nest-js-tumaliwan.vercel.app/api/:match*"
+      "source": "/api/pitwall",
+      "destination": "https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall"
     }
   ]
 }
