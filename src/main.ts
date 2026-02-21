@@ -2,15 +2,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    cors: {
-      origin: 'https://pitwall-board.vercel.app',
-      methods: ['GET', 'POST', 'OPTIONS'],
-      allowedHeaders: ['Content-Type'],
-    },
+  const app = await NestFactory.create(AppModule);
+  
+  // This opens the gates completely
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
   });
 
-  await app.listen(3000);
+  // CRITICAL FIX: This allows Vercel to assign its own port
+  await app.listen(process.env.PORT ?? 3000);
 }
-
 bootstrap();
