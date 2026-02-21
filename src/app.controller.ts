@@ -1,12 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('api/pitwall')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  async fetchMessages() {
+    return await this.appService.getMessages();
+  }
+
+  @Post()
+  async postMessage(@Body() body: { driverName: string; message: string }) {
+    return await this.appService.addMessage(body.driverName, body.message);
   }
 }
