@@ -1,9 +1,14 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Options } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller('api/pitwall')
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Options()
+  options() {
+    return;
+  }
 
   @Get()
   async fetchMessages() {
@@ -11,7 +16,12 @@ export class AppController {
   }
 
   @Post()
-  async postMessage(@Body() body: { driverName: string; message: string }) {
-    return await this.appService.addMessage(body.driverName, body.message);
+  async postMessage(
+    @Body() body: { driverName: string; message: string }
+  ) {
+    return await this.appService.addMessage(
+      body.driverName,
+      body.message
+    );
   }
 }

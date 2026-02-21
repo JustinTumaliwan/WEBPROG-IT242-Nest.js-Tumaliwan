@@ -25,10 +25,18 @@ function App() {
     if (!driverName || !message) return;
 
     try {
-      await axios.post('https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall', {
-        driverName,
-        message,
-      });
+            await axios.post(
+        'https://webprog-it242-nest-js-tumaliwan.vercel.app/api/pitwall',
+        {
+          driverName,
+          message,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       setDriverName('');
       setMessage('');
       fetchMessages(); // Refresh the board
